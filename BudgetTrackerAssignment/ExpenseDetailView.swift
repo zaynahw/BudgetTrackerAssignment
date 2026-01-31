@@ -15,8 +15,28 @@ struct ExpenseDetailView: View {
         List {
             Section(header: Text("Expense Info")) {
                 // TODO: Create a row for editing the expense name
+                HStack {
+                    Text("Name")
+                        .fontWeight(.heavy)
+                    Spacer()
+                    TextField("Name", text: $expense.name)
+                        .multilineTextAlignment(.trailing)
+                }
+                .padding(20)
+                .frame(maxWidth: .infinity, maxHeight: 20)
+
+                
                 
                 // TODO: Create a row for editing the expense amount
+                HStack {
+                    Text("Amount")
+                        .fontWeight(.heavy)
+                    Spacer()
+                    TextField("Amount",value: $expense.amount, format: .currency(code: "USD"))
+                        .multilineTextAlignment(.trailing)
+                }
+                .padding(20)
+                .frame(maxWidth: .infinity, maxHeight: 20)
             }
             
         }
